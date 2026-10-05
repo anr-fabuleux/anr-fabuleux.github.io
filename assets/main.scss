@@ -1,0 +1,197 @@
+---
+---
+
+// Couleurs du logo
+$fab-navy:  #00306a;
+$fab-blue:  #008be1;
+$fab-teal:  #009799;
+
+$brand-color: #0067b5; // bleu du logo assombri, lisible pour les liens
+$header-height: 84px;
+
+@import "minima";
+
+// En-tête : bandeau dégradé, logo et navigation
+.site-header {
+  border-top: 0;
+  min-height: $header-height;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $fab-navy, $fab-blue, $fab-teal);
+  }
+}
+
+.site-title {
+  display: flex;
+  align-items: center;
+  height: $header-height;
+
+  img {
+    display: block;
+    height: 60px;
+    width: auto;
+  }
+}
+
+.site-nav {
+  line-height: $header-height;
+
+  .page-link {
+    color: $grey-color-dark;
+    font-weight: 500;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+
+    &:hover {
+      color: $fab-navy;
+      text-decoration: none;
+      border-bottom-color: $fab-teal;
+    }
+
+    &.active {
+      color: $fab-navy;
+      border-bottom-color: $fab-navy;
+    }
+  }
+
+  @include media-query($on-palm) {
+    top: ($header-height - 38px) * 0.5;
+    line-height: $base-line-height;
+
+    .page-link,
+    .page-link:hover,
+    .page-link.active {
+      border-bottom: 0;
+    }
+  }
+}
+
+// Contenu
+.page-content {
+  p {
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    color: $fab-navy;
+  }
+
+  // Titres de section soulignés d'un trait aux couleurs du logo
+  h1 ~ h1 {
+    margin-top: $spacing-unit * 1.5;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 3px;
+      margin-top: 6px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, $fab-blue, $fab-teal);
+    }
+  }
+}
+
+.post-title,
+.post-content h1 {
+  color: $fab-navy;
+}
+
+a:hover {
+  color: $fab-teal;
+}
+
+// Consortium : un bloc par partenaire, sur une ligne
+.consortium {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-unit * 0.5;
+  margin-bottom: $spacing-unit;
+
+  @include media-query($on-laptop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-query($on-palm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.partner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: $spacing-unit * 0.5 $spacing-unit * 0.33;
+  border: 1px solid $grey-color-light;
+  border-radius: 4px;
+  color: $text-color;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+
+  &:hover {
+    text-decoration: none;
+    border-color: $fab-teal;
+    box-shadow: 0 4px 12px rgba($fab-navy, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.partner-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  color: $fab-navy;
+}
+
+.partner-affiliation {
+  margin-top: 4px;
+  font-size: $small-font-size;
+  line-height: 1.4;
+  color: $grey-color;
+}
+
+// Actualités
+.news {
+  list-style: none;
+  margin-left: 0;
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: $spacing-unit * 0.5;
+    padding: 10px 0;
+    border-bottom: 1px solid $grey-color-light;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.news-date {
+  flex-shrink: 0;
+  font-size: $small-font-size;
+  font-variant-numeric: tabular-nums;
+  color: $grey-color;
+}
+
+// Pied de page
+.site-footer {
+  font-size: $small-font-size;
+  color: $grey-color;
+}
+
+.news-empty {
+  color: $grey-color;
+  font-style: italic;
+}
