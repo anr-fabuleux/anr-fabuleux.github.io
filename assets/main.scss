@@ -195,3 +195,80 @@ a:hover {
   color: $grey-color;
   font-style: italic;
 }
+
+// Équipe : un bloc par partenaire avec la liste de ses membres
+.team {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-unit * 0.5;
+
+  @include media-query($on-palm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.team-partner {
+  padding: $spacing-unit * 0.5 $spacing-unit * 0.66;
+  border: 1px solid $grey-color-light;
+  border-top: 3px solid $fab-teal;
+  border-radius: 4px;
+}
+
+.post-content .team-partner-name {
+  margin-bottom: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+
+  a,
+  a:visited {
+    color: $fab-navy;
+  }
+
+  a:hover {
+    color: $fab-teal;
+    text-decoration: none;
+  }
+}
+
+.page-content .team-partner-affiliation {
+  margin-bottom: 10px;
+  font-size: $small-font-size;
+  text-align: left;
+  color: $grey-color;
+}
+
+.team-members {
+  list-style: none;
+  margin: 0;
+
+  li {
+    padding: 6px 0;
+    border-top: 1px solid $grey-color-light;
+  }
+}
+
+.team-role {
+  display: block;
+  font-size: $small-font-size;
+  color: $grey-color;
+}
+
+.page-content .team-empty {
+  margin-bottom: 0;
+  font-style: italic;
+  color: $grey-color;
+}
+
+// Sélecteur de langue, séparé du menu par un trait
+.site-nav .lang-switch {
+  margin-left: 4px;
+  padding-left: 18px;
+  border-left: 1px solid $grey-color-light;
+  font-size: $small-font-size;
+  letter-spacing: 0.05em;
+
+  @include media-query($on-palm) {
+    border-left: 0;
+    padding-left: 10px;
+  }
+}

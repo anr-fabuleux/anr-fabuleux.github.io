@@ -1,0 +1,46 @@
+# Partenaires du consortium et membres du projet.
+# Utilisé par la page d'accueil (section Consortium) et la page Équipe.
+#
+# Pour ajouter un membre, ajouter une entrée sous « membres » :
+#   membres:
+#     - nom: Prénom Nom
+#       role: Coordinateur du projet   # facultatif, ou bilingue :
+#       # role: { fr: Coordinateur du projet, en: Project coordinator }
+#       url: https://...               # facultatif
+
+- nom: LS2N
+  affiliation:
+    fr: Inria et Nantes Université
+    en: Inria and Nantes Université
+  url: https://www.ls2n.fr
+  membres:
+    - nom: Florian Boudin
+    - nom: Nicolas Hernandez
+    - nom: Richard Dufour
+
+- nom: ISIR
+  affiliation:
+    fr: Sorbonne Université et CNRS
+    en: Sorbonne Université and CNRS
+  url: https://www.isir.upmc.fr
+  membres:
+    - nom: François Yvon
+
+- nom: Inria Paris
+  affiliation:
+    fr: Équipe ALMAnaCH
+    en: ALMAnaCH team
+  url: https://almanach.inria.fr
+  membres:
+    - nom: Rachel Bawden
+    - nom: Benoît Sagot
+
+- nom: LORIA
+  affiliation:
+    fr: Université de Lorraine, équipe Mosaik
+    en: Université de Lorraine, Mosaik team
+  url: https://www.loria.fr
+  membres:
+    - nom: Claire Gardent
+    - nom: Yannick Parmentier
+    - nom: Christophe Cerisara

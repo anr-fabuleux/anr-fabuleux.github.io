@@ -1,5 +1,6 @@
+{%- assign lang = page.lang | default: site.lang -%}
 <footer class="site-footer">
   <div class="wrapper" style="text-align: center;">
-    Dernière mise à jour : {{ page.last_modified_at | default: site.time | date: "%d/%m/%Y" }}
+    {{ site.data.i18n[lang].mise_a_jour }} {{ page.last_modified_at | default: site.time | date: site.data.i18n[lang].format_date }}
   </div>
 </footer>

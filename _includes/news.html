@@ -1,0 +1,14 @@
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign posts = site.posts | where: "lang", lang -%}
+{%- if posts.size == 0 %}
+<p class="news-empty">{{ site.data.i18n[lang].aucune_actualite }}</p>
+{%- else %}
+<ul class="news">
+  {%- for post in posts %}
+  <li>
+    <span class="news-date">{{ post.date | date: site.data.i18n[lang].format_date }}</span>
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </li>
+  {%- endfor %}
+</ul>
+{%- endif %}

@@ -1,0 +1,9 @@
+{%- assign lang = page.lang | default: site.lang -%}
+<div class="consortium">
+  {%- for partenaire in site.data.partenaires %}
+  <a class="partner" href="{{ partenaire.url }}">
+    <span class="partner-name">{{ partenaire.nom }}</span>
+    <span class="partner-affiliation">{{ partenaire.affiliation[lang] }}</span>
+  </a>
+  {%- endfor %}
+</div>

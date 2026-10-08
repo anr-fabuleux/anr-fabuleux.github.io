@@ -32,11 +32,29 @@ theme: minima
 plugins:
   - jekyll-feed
 
-# Pages affichées dans la barre de navigation, dans cet ordre
-header_pages:
-  - index.markdown
-  - publications.markdown
-  - ressources.markdown
+# Pages affichées dans la barre de navigation, par langue et dans cet ordre
+navigation:
+  fr:
+    - index.markdown
+    - equipe.markdown
+    - publications.markdown
+    - ressources.markdown
+  en:
+    - en/index.markdown
+    - en/team.markdown
+    - en/publications.markdown
+    - en/resources.markdown
+
+# Langue par défaut des pages et articles : français, anglais sous en/
+defaults:
+  - scope:
+      path: ""
+    values:
+      lang: fr
+  - scope:
+      path: "en"
+    values:
+      lang: en
 
 # Exclude from processing.
 # The following items will not be processed, by default.

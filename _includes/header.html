@@ -1,9 +1,18 @@
 <header class="site-header" role="banner">
 
   <div class="wrapper">
-    {%- assign default_paths = site.pages | map: "path" -%}
-    {%- assign page_paths = site.header_pages | default: default_paths -%}
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">
+    {%- assign lang = page.lang | default: site.lang -%}
+    {%- if lang == "en" -%}{%- assign other_lang = "fr" -%}{%- assign home = "/en/" -%}{%- assign other_url = "/" -%}
+    {%- else -%}{%- assign other_lang = "en" -%}{%- assign home = "/" -%}{%- assign other_url = "/en/" -%}{%- endif -%}
+    {%- assign page_paths = site.navigation[lang] -%}
+
+    {%- comment -%} Même page dans l'autre langue (même « ref »), sinon son accueil {%- endcomment -%}
+    {%- if page.ref -%}
+      {%- assign other_docs = site.pages | concat: site.posts | where: "ref", page.ref | where: "lang", other_lang -%}
+      {%- if other_docs.size > 0 -%}{%- assign other_url = other_docs.first.url -%}{%- endif -%}
+    {%- endif -%}
+
+    <a class="site-title" rel="author" href="{{ home | relative_url }}">
       <img src="{{ "/assets/logo-fabuleux-header.png" | relative_url }}" alt="{{ site.title | escape }}" width="204" height="112">
     </a>
 
@@ -25,6 +34,7 @@
             <a class="page-link{% if page.url == my_page.url %} active{% endif %}" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
             {%- endif -%}
           {%- endfor -%}
+          <a class="page-link lang-switch" href="{{ other_url | relative_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}" title="{{ site.data.i18n[other_lang].langue }}">{{ other_lang | upcase }}</a>
         </div>
       </nav>
     {%- endif -%}

@@ -1,0 +1,24 @@
+{%- assign lang = page.lang | default: site.lang -%}
+<div class="team">
+  {%- for partenaire in site.data.partenaires %}
+  <section class="team-partner">
+    <h2 class="team-partner-name">
+      <a href="{{ partenaire.url }}">{{ partenaire.nom }}</a>
+    </h2>
+    <p class="team-partner-affiliation">{{ partenaire.affiliation[lang] }}</p>
+    {%- if partenaire.membres.size > 0 %}
+    <ul class="team-members">
+      {%- for membre in partenaire.membres %}
+      {%- assign role = membre.role[lang] | default: membre.role %}
+      <li>
+        {% if membre.url %}<a href="{{ membre.url }}">{{ membre.nom }}</a>{% else %}{{ membre.nom }}{% endif %}
+        {% if role %}<span class="team-role">{{ role }}</span>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- else %}
+    <p class="team-empty">{{ site.data.i18n[lang].liste_a_venir }}</p>
+    {%- endif %}
+  </section>
+  {%- endfor %}
+</div>

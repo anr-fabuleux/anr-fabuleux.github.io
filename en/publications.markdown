@@ -2,5 +2,5 @@
 layout: page
 title: Publications
 ref: publications
-permalink: /publications/
+permalink: /en/publications/
 ---

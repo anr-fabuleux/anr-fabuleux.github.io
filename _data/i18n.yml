@@ -1,0 +1,17 @@
+# Textes de l'interface dans chaque langue
+fr:
+  langue: Français
+  consortium: Consortium
+  actualites: Actualités
+  aucune_actualite: Aucune actualité pour le moment.
+  liste_a_venir: Liste à venir.
+  mise_a_jour: "Dernière mise à jour :"
+  format_date: "%d/%m/%Y"
+en:
+  langue: English
+  consortium: Consortium
+  actualites: News
+  aucune_actualite: No news yet.
+  liste_a_venir: Coming soon.
+  mise_a_jour: "Last updated:"
+  format_date: "%B %-d, %Y"
